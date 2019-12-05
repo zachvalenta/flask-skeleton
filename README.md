@@ -4,6 +4,8 @@ The Flask app from which all my other Flask apps derive.
 
 # run locally
 
+* `cp -r flask-skeleton <new-project>`
+* `rm .env; rm .git; rm venv`
 * dependencies - [make virtual environment and activate](https://github.com/zachvalenta/dotfiles/blob/master/.bash_profile#L80)
 * dependencies - `make install`
 * env var - `ln -sf .env.dev .env`
