@@ -11,16 +11,16 @@ help:
 	@echo
 	@echo "📊 CODE QUALITY"
 	@echo
-	@echo "test:    	run unit tests, view basic coverage report in terminal"
-	@echo "cov:     	view HTML coverage report in browser"
-	@echo "lint:     	lint using flake8"
-	@echo "fmt:     	autoformat using black"
+	@echo "test:       run unit tests, view basic coverage report in terminal"
+	@echo "cov:        view HTML coverage report in browser"
+	@echo "lint:       lint using flake8"
+	@echo "fmt:        autoformat using black"
 	@echo
 	@echo "📦 DEPENDENCIES"
 	@echo
-	@echo "install:     install dependencies from requirements.txt"
-	@echo "purge:       remove any installed pkg *not* in requirements.txt"
-	@echo "freeze:      freeze dependencies into requirements.txt"
+	@echo "install:    install dependencies from requirements.txt"
+	@echo "purge:      remove any installed pkg *not* in requirements.txt"
+	@echo "freeze:     freeze dependencies into requirements.txt"
 	@echo
 	@echo "======================================================================"
 	@echo
