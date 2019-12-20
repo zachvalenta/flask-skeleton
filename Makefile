@@ -49,7 +49,7 @@ lint:
 	source venv/bin/activate; flake8 *.py
 
 fmt:
-	source venv/bin/activate; black *.py
+	source venv/bin/activate; isort *.py; black *.py
 
 #
 # 📦 DEPENDENCIES
