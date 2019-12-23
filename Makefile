@@ -18,6 +18,7 @@ help:
 	@echo
 	@echo "📦 DEPENDENCIES"
 	@echo
+	@echo "deps:       display dependency graph"
 	@echo "install:    install dependencies from requirements.txt"
 	@echo "purge:      remove any installed pkg *not* in requirements.txt"
 	@echo "freeze:     freeze dependencies into requirements.txt"
