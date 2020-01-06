@@ -4,14 +4,11 @@ The Flask app from which all my other Flask apps derive.
 
 # run locally
 
-* `cp -r <this-repo> <new-project>`
-* `rm .env; rm .git; rm venv`
-* dependencies - [make virtual environment and activate](https://github.com/zachvalenta/dotfiles/blob/master/.bash_profile#L80)
-* dependencies - `make install`
-* env var - `ln -sf .env.dev .env`
-* run - `make flask`
-* commit
-* everything else - `make help`
+* Git: clone, 📍 rm remote, re-initialize (`rm .git` and `git init`)
+* dependencies: [make virtual environment and activate](https://github.com/zachvalenta/dotfiles/blob/master/.bash_profile#L80), install deps w/ `make install`
+* env var: `ln -sf .env.dev .env`
+* run: `make flask`
+* everything else: `make help`
 
 ```sh
 ======================================================================
