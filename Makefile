@@ -18,8 +18,8 @@ help:
 	@echo
 	@echo "📦 DEPENDENCIES"
 	@echo
-	@echo "deps:       display dependency graph"
 	@echo "install:    install dependencies from requirements.txt"
+	@echo "deps:       display dependency graph"
 	@echo "purge:      remove any installed pkg *not* in requirements.txt"
 	@echo "freeze:     freeze dependencies into requirements.txt"
 	@echo
@@ -56,11 +56,11 @@ fmt:
 # 📦 DEPENDENCIES
 #
 
-deps:
-	source venv/bin/activate; pipdeptree
-
 install:
 	source venv/bin/activate; pip install -r requirements.txt
+
+deps:
+	source venv/bin/activate; pipdeptree
 
 purge:
 	@echo "🔍 - DISCOVERING UNSAVED PACKAGES\n"
