@@ -4,7 +4,7 @@ help:
 	@echo
 	@echo "======================================================================"
 	@echo
-	@echo "🛠 UTILS"
+	@echo "🛠  UTILS"
 	@echo
 	@echo "flask:      start built-in Flask dev server"
 	@echo "get:        hit index endpoint"
@@ -18,10 +18,8 @@ help:
 	@echo
 	@echo "📦 DEPENDENCIES"
 	@echo
-	@echo "install:    install dependencies from requirements.txt"
-	@echo "deps:       display dependency graph"
-	@echo "purge:      remove any installed pkg *not* in requirements.txt"
-	@echo "freeze:     freeze dependencies into requirements.txt"
+	@echo "env:        show environment info"
+	@echo "deps:       list prod dependencies"
 	@echo
 	@echo "======================================================================"
 	@echo
@@ -31,52 +29,33 @@ help:
 #
 
 flask:
-	source venv/bin/activate; flask run
+	poetry run flask run
 
 get:
-	source venv/bin/activate; http http://localhost:5000
+	poetry run http http://localhost:5000
 
 #
 # 📊 CODE QUALITY
 #
 
 test:
-	source venv/bin/activate; coverage run --source='app' -m pytest -v && coverage report -m
+	poetry run coverage run --source='app' -m pytest -v && poetry run coverage report -m
 
 cov:
-	source venv/bin/activate; coverage html; open htmlcov/index.html
+	poetry run coverage html; open htmlcov/index.html
 
 lint:
-	source venv/bin/activate; flake8 *.py
+	poetry run flake8 *.py
 
 fmt:
-	source venv/bin/activate; isort *.py; black *.py
+	poetry run isort *.py; poetry run black *.py
 
 #
 # 📦 DEPENDENCIES
 #
 
-install:
-	source venv/bin/activate; pip install -r requirements.txt
+env:
+	poetry env info
 
 deps:
-	source venv/bin/activate; pipdeptree
-
-purge:
-	@echo "🔍 - DISCOVERING UNSAVED PACKAGES\n"
-	source venv/bin/activate; pip freeze > pkgs-to-rm.txt
-	@echo
-	@echo "📦 - UNINSTALL ALL PACKAGES\n"
-	source venv/bin/activate; pip uninstall -y -r pkgs-to-rm.txt
-	@echo
-	@echo "♻️  - REINSTALL SAVED PACKAGES\n"
-	source venv/bin/activate; pip install -r requirements.txt
-	@echo
-	@echo "🗑  - UNSAVED PACKAGES REMOVED\n"
-	diff pkgs-to-rm.txt requirements.txt | grep '<'
-	@echo
-	rm pkgs-to-rm.txt
-	@echo
-
-freeze:
-	source venv/bin/activate; pip freeze > requirements.txt
+	poetry show --tree --no-dev

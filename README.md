@@ -1,19 +1,19 @@
-# overview
+# what (is this)?
 
 The Flask app from which all my other Flask apps derive.
 
-# run locally
+# how (to use)?
 
-* Git: clone, 📍 rm remote, re-initialize (`rm .git` and `git init`)
-* dependencies: [make virtual environment and activate](https://github.com/zachvalenta/dotfiles/blob/master/.bash_profile#L80), install deps w/ `make install`
-* env var: `ln -sf .env.dev .env`
-* run: `make flask`
-* everything else: `make help`
+* __Git__: clone the repo, then make it your own by removing the connection to this remote (`git remote rm git@github.com:zachvalenta/flask-skeleton.git`) and re-initializing the commit history (`rm .git` then `git init`)
+* __dependencies__: `poetry install`
+* __env var__: `ln -sf .env.dev .env`
+* __run__: `make flask`
+* __everything else__: `make help`
 
-```sh
+```Makefile
 ======================================================================
 
-🛠 UTILS
+🛠  UTILS
 
 flask:      start built-in Flask dev server
 get:        hit index endpoint
@@ -27,10 +27,8 @@ fmt:        autoformat using black
 
 📦 DEPENDENCIES
 
-deps:       display dependency graph
-install:    install dependencies from requirements.txt
-purge:      remove any installed pkg *not* in requirements.txt
-freeze:     freeze dependencies into requirements.txt
+env:        show environment info
+deps:       list prod dependencies
 
 ======================================================================
 ```
