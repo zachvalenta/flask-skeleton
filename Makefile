@@ -8,6 +8,9 @@ help:
 	@echo
 	@echo "flask:      start built-in Flask dev server"
 	@echo "get:        hit index endpoint"
+	@echo "seed:       seed db"
+	@echo "repl:       open bpython REPL w/ db obj loaded"
+	@echo "lite:       connect to SQLite w/ litecli"
 	@echo
 	@echo "📊 CODE QUALITY"
 	@echo
@@ -33,6 +36,15 @@ flask:
 
 get:
 	poetry run http http://localhost:5000
+
+seed:
+	rm local.db; poetry run python db_seed.py
+
+repl:
+	poetry run bpython -i db_repl.py
+
+lite:
+	poetry run litecli local.db
 
 #
 # 📊 CODE QUALITY
