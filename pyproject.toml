@@ -9,6 +9,8 @@ python = "^3.6"
 flask = "^1.1.1"
 python-dotenv = "^0.10.3"
 flask-sqlalchemy = "^2.4.1"
+marshmallow-sqlalchemy = "^0.21.0"
+flask-marshmallow = "^0.10.1"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
