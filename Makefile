@@ -7,8 +7,9 @@ help:
 	@echo "🛠  UTILS"
 	@echo
 	@echo "flask:      start built-in Flask dev server"
-	@echo "get:        hit index endpoint"
 	@echo "seed:       seed db"
+	@echo "home:       open home page"
+	@echo "api:        hit API"
 	@echo "repl:       open bpython REPL w/ db obj loaded"
 	@echo "lite:       connect to SQLite w/ litecli"
 	@echo
@@ -34,11 +35,14 @@ help:
 flask:
 	poetry run flask run
 
-get:
-	poetry run http http://localhost:5000
-
 seed:
 	rm local.db; poetry run python db_seed.py
+
+api:
+	poetry run http http://localhost:5000/api
+
+home:
+	open http://localhost:5000
 
 repl:
 	poetry run bpython -i db_repl.py

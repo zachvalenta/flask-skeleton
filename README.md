@@ -7,6 +7,7 @@ The Flask app from which all my other Flask apps derive.
 * __Git__: clone the repo, then make it your own by removing the connection to this remote (`git remote rm git@github.com:zachvalenta/flask-skeleton.git`) and re-initializing the commit history (`rm .git` then `git init`)
 * __dependencies__: `poetry install`
 * __env var__: `ln -sf .env.dev .env`
+* __scaffold db__: `make seed`
 * __run__: `make flask`
 * __everything else__: `make help`
 

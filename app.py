@@ -1,7 +1,8 @@
 import os
 
 from dotenv import find_dotenv, load_dotenv
-from flask import Flask
+from flask import Flask, render_template
+from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 
 """
@@ -15,15 +16,16 @@ db_path = os.path.join(basedir, os.getenv("DATABASE"))
 db_uri = "sqlite:///" + db_path
 
 # app - init, config
-app = Flask(__name__)
+app = Flask(__name__, template_folder=basedir)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
 
 # db - init
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 """
-MODELS
+MODEL & SCHEMA
 """
 
 
@@ -35,6 +37,9 @@ class Thing(db.Model):
     def __repr__(self):
         return f"id {self.thing_id} name {self.name} desc {self.description}"
 
+class ThingSchema(ma.ModelSchema):
+    class Meta:
+        model = Thing
 
 """
 ROUTES
@@ -43,4 +48,17 @@ ROUTES
 
 @app.route("/")
 def index():
-    return "new flask app"
+    results = get_things()
+    return render_template("index.html", results=results)
+
+
+@app.route("/api")
+def api():
+    results = get_things()
+    return {"results": results}
+
+
+def get_things():
+    things = Thing.query.all()
+    thing_schema = ThingSchema(many=True)
+    return thing_schema.dump(things)
