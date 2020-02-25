@@ -8,7 +8,7 @@ help:
 	@echo
 	@echo "flask:      start built-in Flask dev server"
 	@echo "home:       open home page"
-	@echo "api:        hit API"
+	@echo "api:        get single performance"
 	@echo
 	@echo "📊 DATA"
 	@echo
@@ -44,7 +44,7 @@ home:
 	open http://localhost:5000
 
 api:
-	poetry run http http://localhost:5000/api
+	poetry run http http://localhost:5000/api/performances/7
 
 #
 # 📊 DATA

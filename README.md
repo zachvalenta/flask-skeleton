@@ -1,6 +1,6 @@
 # what is this?
 
-Skeleton for Flask demo CRUD apps
+Skeleton for Flask CRUD apps; similar to [another project](https://github.com/zachvalenta/flask-CRUD) I have but w/out pagination and search.
 
 # how to use?
 
