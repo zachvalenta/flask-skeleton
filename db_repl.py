@@ -1,16 +1,21 @@
 #!/usr/bin/env python
 
+from random import randint
+
 from app import Artist, Performance, PerformanceSchema
 
-nas = Artist.query.get(2)
+
+print("\n🔍 sample queries \n")
+artist = Artist.query.get(randint(1, 2))
+print(f"songs for artist {artist.artist_id} ({artist.name}): artist.songs \n")
+print(f"{artist.songs}\n")
+
+print("🔍 sample serializer \n")
 performances = Performance.query.all()
 performance_schema = PerformanceSchema(many=True)
 perfs = performance_schema.dump(performances)
-perf = perfs[14]
-
-print("\n 🔍 sample query obj: nas (Artist) \n\n")
-print(f"songs for artist: nas.song | " f"{nas.songs} \n")
-print("\n 🔍 sample serializer: perf (Performance) \n\n")
-print(f"id: perf['perf_id'] | {perf['perf_id']} \n")
-print(f"song performed: perf['song']['name'] | {perf['song']['name']} \n")
-print(f"concert of performance: perf['concert']['name'] | {perf['concert']['name']} \n")
+perf = perfs[randint(1, 30)]
+print(f"song performed: perf['song']['name']\n")
+print(f"{perf['song']['name']} \n")
+print(f"concert of performance: perf['concert']['name']\n")
+print(f"{perf['concert']['name']} \n")
