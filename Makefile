@@ -7,6 +7,7 @@ help:
 	@echo "🛠  UTILS"
 	@echo
 	@echo "flask:      start built-in Flask dev server"
+	@echo "guni:       start gunicorn app server"
 	@echo "get:        hit index endpoint"
 	@echo
 	@echo "📊 CODE QUALITY"
@@ -31,6 +32,9 @@ help:
 
 flask:
 	poetry run flask run
+
+guni:
+	poetry run gunicorn -b 127.0.0.1:5001 app:app
 
 get:
 	poetry run http http://localhost:5000
