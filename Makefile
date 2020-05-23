@@ -8,6 +8,7 @@ help:
 	@echo
 	@echo "flask:      start built-in Flask dev server"
 	@echo "guni:       start gunicorn app server"
+	@echo "uwsgi:      start uWSGI app server"
 	@echo "get:        hit index endpoint"
 	@echo
 	@echo "📊 CODE QUALITY"
@@ -35,6 +36,9 @@ flask:
 
 guni:
 	poetry run gunicorn -b 127.0.0.1:5001 app:app
+
+uwsgi:
+	poetry run uwsgi --http :5002 --wsgi-file app.py --callable app
 
 get:
 	poetry run http http://localhost:5000
