@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "skeleton"
+name = "flask-scaffold"
 version = "0.1.0"
 description = ""
 authors = ["zachvalenta <zjv5002@gmail.com>"]
@@ -13,7 +13,6 @@ uwsgi = "^2.0.18"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
-httpie = "^1.0.3"
 coverage = "^5.0.2"
 pytest = "^5.3.2"
 flake8 = "^3.7.9"

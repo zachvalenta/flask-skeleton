@@ -1,6 +1,6 @@
 # what is this?
 
-Skeleton for Flask demo apps
+Scaffold for Flask demo apps
 
 # how to use?
 
@@ -8,6 +8,7 @@ Skeleton for Flask demo apps
 * __env var__: `ln -sf .env.dev .env`
 * __Git hooks__: `make hooks`
 * __run__: `make flask`
+* __hit healthcheck__: `make hc`
 * __everything else__: `make help`
 
 ```Makefile
@@ -16,7 +17,9 @@ Skeleton for Flask demo apps
 🛠  UTILS
 
 flask:      start built-in Flask dev server
-get:        hit index endpoint
+hc:         hit healthcheck
+guni:       start gunicorn app server
+uwsgi:      start uWSGI app server
 
 📊 CODE QUALITY
 
@@ -28,8 +31,9 @@ hooks:      set Git hooks w/ pre-commit
 
 📦 DEPENDENCIES
 
-env:        show environment info
+venv:       show environment info
 deps:       list prod dependencies
+export:     export deps to requirements.txt
 
 ======================================================================
 ```

@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test export
 
 help:
 	@echo
@@ -7,9 +7,9 @@ help:
 	@echo "🛠  UTILS"
 	@echo
 	@echo "flask:      start built-in Flask dev server"
+	@echo "hc:         hit healthcheck"
 	@echo "guni:       start gunicorn app server"
 	@echo "uwsgi:      start uWSGI app server"
-	@echo "get:        hit index endpoint"
 	@echo
 	@echo "📊 CODE QUALITY"
 	@echo
@@ -21,8 +21,9 @@ help:
 	@echo
 	@echo "📦 DEPENDENCIES"
 	@echo
-	@echo "env:        show environment info"
+	@echo "venv:       show environment info"
 	@echo "deps:       list prod dependencies"
+	@echo "export:     export deps to requirements.txt"
 	@echo
 	@echo "======================================================================"
 	@echo
@@ -34,14 +35,14 @@ help:
 flask:
 	poetry run flask run
 
+hc:
+	curl -w "\n" "http://127.0.0.1:5000/"
+
 guni:
 	poetry run gunicorn -b 127.0.0.1:5001 app:app
 
 uwsgi:
 	poetry run uwsgi --http :5002 --wsgi-file app.py --callable app
-
-get:
-	poetry run http http://localhost:5000
 
 #
 # 📊 CODE QUALITY
@@ -66,8 +67,12 @@ hooks:
 # 📦 DEPENDENCIES
 #
 
-env:
+venv:
 	poetry env info
 
 deps:
 	poetry show --tree --no-dev
+
+export:
+	poetry export -f requirements.txt > requirements.txt
+
